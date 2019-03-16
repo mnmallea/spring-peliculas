@@ -17,7 +17,6 @@ public class Movie {
     private LocalDate releaseDate;
     private String director;
     @ManyToMany
-    @Cascade(CascadeType.PERSIST)
     @JoinTable(name = "Movies_Actors")
     private List<Actor> cast;
 
@@ -27,6 +26,10 @@ public class Movie {
         this.releaseDate = releaseDate;
         this.director = director;
         this.cast = cast;
+    }
+
+    public Movie() {
+
     }
 
     public String getTitle() {

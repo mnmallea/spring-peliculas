@@ -17,6 +17,9 @@ public class Actor {
         this.surname = surname;
     }
 
+    public Actor() {
+    }
+
     public String getName() {
         return name;
     }
