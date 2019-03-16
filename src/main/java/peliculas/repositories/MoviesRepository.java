@@ -16,6 +16,8 @@ public interface MoviesRepository extends PagingAndSortingRepository<Movie, Long
 
     Page<Movie> findAllByTitle(String title, Pageable pageable);
 
+    Page<Movie> findAllByTitleContaining(String title, Pageable pageable);
+
     Page<Movie> findAll(Pageable pageable);
 
     <S extends Movie> S save(S s);
