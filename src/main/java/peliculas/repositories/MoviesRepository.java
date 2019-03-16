@@ -15,4 +15,5 @@ public interface MoviesRepository extends PagingAndSortingRepository<Movie, Long
     <S extends Movie> S save(S s);
 
     void deleteById(Long aLong);
+
 }
