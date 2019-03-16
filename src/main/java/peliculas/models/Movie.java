@@ -3,14 +3,11 @@ package peliculas.models;
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity
+@Entity(name = "Movies")
 public class Movie {
     @Id
     @GeneratedValue
@@ -21,6 +18,7 @@ public class Movie {
     private String director;
     @ManyToMany
     @Cascade(CascadeType.PERSIST)
+    @JoinTable(name = "Movies_Actors")
     private List<Actor> cast;
 
     public Movie(String title, String country, LocalDate releaseDate, String director, List<Actor> cast) {
