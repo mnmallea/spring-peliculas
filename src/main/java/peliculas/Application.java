@@ -11,6 +11,7 @@ import peliculas.repositories.MoviesRepository;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Arrays;
+import java.util.Collections;
 
 
 @SpringBootApplication
@@ -31,10 +32,11 @@ public class Application {
             Actor tomHardy = new Actor("Tom", "Hardy");
             Actor edwardNorton = new Actor("Edward", "Norton");
             Actor aneurinBarnard = new Actor("Aneurin", "Barnard");
+            Actor umaThurman = new Actor("Uma", "Thurman");
 
             Movie pulpFiction = new Movie("Pulp Fiction", "United States",
                     LocalDate.of(1994, Month.OCTOBER, 14), "Quentin Tarantino",
-                    Arrays.asList(samuelJackson, johnTravolta));
+                    Arrays.asList(samuelJackson, johnTravolta, umaThurman));
             Movie fightClub = new Movie("Fight Club", "United States",
                     LocalDate.of(1999, Month.OCTOBER, 15), "David Fincher",
                     Arrays.asList(bradPitt, edwardNorton));
@@ -44,11 +46,19 @@ public class Application {
             Movie inception = new Movie("Inception", "United States",
                     LocalDate.of(2010, Month.JULY, 16), "Christopher Nolan",
                     Arrays.asList(diCaprio, ellenPage, tomHardy));
+            Movie theAvengers1998 = new Movie("The Avengers", "United States",
+                    LocalDate.of(1998, Month.AUGUST, 14), "Jeremiah Chechik",
+                    Collections.singletonList(umaThurman));
+            Movie theAvengers2012 = new Movie("The Avengers", "United States",
+                    LocalDate.of(2012, Month.MAY, 4), "Joss Whedon",
+                    Collections.emptyList());
 
             moviesRepository.save(pulpFiction);
             moviesRepository.save(fightClub);
             moviesRepository.save(dunkirk);
             moviesRepository.save(inception);
+            moviesRepository.save(theAvengers1998);
+            moviesRepository.save(theAvengers2012);
         });
     }
 }
