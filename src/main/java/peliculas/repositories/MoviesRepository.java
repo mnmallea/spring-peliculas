@@ -22,6 +22,8 @@ public interface MoviesRepository extends PagingAndSortingRepository<Movie, Long
 
     <S extends Movie> S save(S s);
 
+    <S extends Movie> Iterable<S> saveAll(Iterable<S> entities);
+
     void deleteById(Long aLong);
 
 }
